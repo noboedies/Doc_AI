@@ -33,7 +33,7 @@ public class MailSending {
 		try {
 			String sub="Password Reset Request";
 			String token = jwtUtil.generateToken(remail);
-			String resetLink = "http://localhost:3066/reset_password?token=" + token;
+			String resetLink = "https:docai-production-37c8.up.railway.app/reset_password?token=" + token;
 			String body="Click the link to reset your password: "+resetLink;
 			SimpleMailMessage mailMessage=new SimpleMailMessage();
 			mailMessage.setTo(remail);
@@ -51,7 +51,7 @@ public class MailSending {
 		try {
 			String sub="Password Reset Request";
 			String token = jwtUtil.generateToken(remail);
-			String resetLink = "http://localhost:3066/reset_password?token=" + token;
+			String resetLink = "https:docai-production-37c8.up.railway.app/reset_password?token=" + token;
 			String body="<h1 style='background-color:blue;color:white;padding:20px;'>Hi, <br> We received a request to reset the password for your account.</h1> "
 			+ "<p style='background-color:yellow;padding:20px;'>Click the link below to reset your password: <br>"+resetLink+" <br>This link is valid for the next 15 minutes.! <br>If you did not request a password reset, please ignore this email—your password will remain unchanged. <br>Thanks, <br>(Doc_AI) Security Team</p>";
 			MimeMessage mailMessage=mailSender.createMimeMessage();
@@ -68,3 +68,4 @@ public class MailSending {
 		}
 	}
 }
+
